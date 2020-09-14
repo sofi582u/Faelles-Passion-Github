@@ -8,11 +8,11 @@
     <style>
         body {
             text-align: center;
-            background-color: #e29000;
+            background-color: #fff;
         }
 
         article {
-            border: 0px solid #333;
+            border: 0px solid #fff;
             border-radius: 10%;
             padding: 20px;
             text-align: center;
@@ -76,7 +76,7 @@
             right: 1em;
             top: 0;
             width: 20px;
-            background-color: #e29000;
+            background-color: #fff;
             color: white;
             border-radius: 15px;
             padding: .1rem;
@@ -93,6 +93,64 @@
 
         .text {
             max-height: 40%;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #knap_sektion1 button:nth-child(2) {
+            background-image: url(imgs/gin_bottle.svg);
+            object-fit: cover;
+            border: none;
+            background-color: #fff;
+            width: 300px;
+            height: 450px;
+            text-align: end;
+        }
+
+        #knap_sektion1 button:nth-child(3) {
+            background-image: url(imgs/rom_bottle.svg);
+            object-fit: cover;
+            border: none;
+            background-color: #fff;
+            width: 300px;
+            height: 450px;
+        }
+
+        #knap_sektion1 button:nth-child(4) {
+            background-image: url(imgs/vodka_bottle.svg);
+            object-fit: cover;
+            border: none;
+            background-color: #fff;
+            width: 300px;
+            height: 450px;
+        }
+
+        #knap_sektion1 button:nth-child(5) {
+            background-image: url(imgs/tequila_bottle.svg);
+            object-fit: cover;
+            border: none;
+            background-color: #fff;
+            width: 300px;
+            height: 450px;
+        }
+
+        #knap_sektion2 button:nth-child(2) {
+            font-family: cursive;
+        }
+
+        #knap_sektion2 button:nth-child(3) {
+            font-family: cursive;
+        }
+
+        #knap_sektion2 button:nth-child(4) {
+            font-family: cursive;
+        }
+
+        #knap_sektion2 button:nth-child(5) {
+            font-family: cursive;
         }
 
     </style>
@@ -117,12 +175,27 @@
     <h1 class="title">KLINK</h1>
 
     <header>
-        <button class="filter valgt" data-rettype="alle">Alle</button>
-        <button class="filter " data-rettype="gin">Gin</button>
-        <button class="filter " data-rettype="vodka">Vodka</button>
-        <button class="filter " data-rettype="rom">Rom</button>
-        <button class="filter " data-rettype="tequila">Tequila</button>
+        <!--BILLED KNAPPER-->
+        <div id="knap_sektion1">
+            <button class="filter valgt" data-rettype="alle"></button>
+            <button class="filter " data-rettype="gin"></button>
+            <button class="filter " data-rettype="vodka"></button>
+            <button class="filter " data-rettype="rom"></button>
+            <button class="filter " data-rettype="tequila"></button>
+        </div>
+
+        <!--TEKST KNAPPER-->
+        <div id="knap_sektion2">
+            <button class="filter valgt" data-rettype="alle"></button>
+            <button class="filter " data-rettype="gin">Gin</button>
+            <button class="filter " data-rettype="vodka">Vodka</button>
+            <button class="filter " data-rettype="rom">Rom</button>
+            <button class="filter " data-rettype="tequila">Tequila</button>
+        </div>
     </header>
+
+
+
 
     <h1 id="kategori">Alle</h1>
 
@@ -137,7 +210,7 @@
             <img src="" alt="">
             <p class="kategori"></p>
             <p class="tekst"></p>
-<!--            <p class="ingredienser"></p>-->
+            <!--            <p class="ingredienser"></p>-->
         </article>
     </template>
 
@@ -179,7 +252,7 @@
 
                     //                    klon.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
                     klon.querySelector(".tekst").textContent = ret.gsx$tekst.$t;
-//                    klon.querySelector(".ingredienser").textContent = ret.gsx$ingredienser.$t + ",-";
+                    //                    klon.querySelector(".ingredienser").textContent = ret.gsx$ingredienser.$t + ",-";
                     console.log("article", klon.querySelector("article"));
                     klon.querySelector("article").addEventListener("click", () => visDetaljer(ret));
                     container.appendChild(klon);
