@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>KLINK</title>
+    <!--    HEJ ALAN OG SOFIE-->
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <style>
@@ -44,13 +45,17 @@
             margin: 0px;
         }
 
+        .undertitle {
+            color: #000;
+            font-size: 4rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
         #kategori {
             color: white;
         }
 
-        h2 {
-            color: #e29000;
-        }
+        h2 {}
 
         .valgt {
             color: #e29000;
@@ -102,31 +107,36 @@
         }
 
         header {
-            display: flex;
-            flex-direction: column;
+            background-color: #fcf9f9;
         }
 
         /*BILLED KNAPPER*/
 
+        #knap_sektion1 {
+            display: grid;
+            grid-gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
         #knap_sektion1 button:nth-child(1) {
             display: none;
+
         }
 
         #knap_sektion1 button:nth-child(2) {
             background-image: url(imgs/gin_bottle.svg);
             object-fit: cover;
             border: none;
-            background-color: #fff;
+            background-color: #fcf9f9;
             width: 300px;
             height: 450px;
-            text-align: end;
         }
 
         #knap_sektion1 button:nth-child(3) {
             background-image: url(imgs/rom_bottle.svg);
             object-fit: cover;
             border: none;
-            background-color: #fff;
+            background-color: #fcf9f9;
             width: 300px;
             height: 450px;
         }
@@ -135,7 +145,7 @@
             background-image: url(imgs/vodka_bottle.svg);
             object-fit: cover;
             border: none;
-            background-color: #fff;
+            background-color: #fcf9f9;
             width: 300px;
             height: 450px;
         }
@@ -144,7 +154,7 @@
             background-image: url(imgs/tequila_bottle.svg);
             object-fit: cover;
             border: none;
-            background-color: #fff;
+            background-color: #fcf9f9;
             width: 300px;
             height: 450px;
         }
@@ -164,7 +174,7 @@
         #knap_sektion2 button:nth-child(2) {
             font-family: cursive;
             border: none;
-            background-color: #fff;
+            background-color: #fcf9f9;
             font-size: 3rem;
             text-align: center;
             font-family: 'Montserrat', sans-serif;
@@ -174,7 +184,7 @@
         #knap_sektion2 button:nth-child(3) {
             font-family: cursive;
             border: none;
-            background-color: #fff;
+            background-color: #fcf9f9;
             font-size: 3rem;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
@@ -183,7 +193,7 @@
         #knap_sektion2 button:nth-child(4) {
             font-family: cursive;
             border: none;
-            background-color: #fff;
+            background-color: #fcf9f9;
             font-size: 3rem;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
@@ -192,12 +202,11 @@
         #knap_sektion2 button:nth-child(5) {
             font-family: cursive;
             border: none;
-            background-color: #fff;
+            background-color: #fcf9f9;
             font-size: 3rem;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
         }
-
     </style>
 </head>
 
@@ -218,6 +227,8 @@
 
     </section>
     <h1 class="title">KLINK</h1>
+
+    <h2 class="undertitle">CHOOSE YOUR ALCOHOL</h2>
 
     <header>
         <!--BILLED KNAPPER-->
@@ -345,8 +356,5 @@
             this.classList.add("valgt");
             vis();
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
