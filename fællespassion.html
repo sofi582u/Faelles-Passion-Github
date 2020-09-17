@@ -4,58 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <title>KLINK</title>
-    <!--    HEJ ALAN OG SOFIE-->
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <style>
         html {
             font-size: 62.5%;
+            scroll-behavior: smooth;
         }
 
         body {
             text-align: center;
-            background-color: #fff;
+            margin: 0;
         }
 
         article {
-            border: 0px solid #fff;
-            border-radius: 10%;
             padding: 20px;
-            text-align: center;
-            background-color: white;
+            background-color: #fcf9f9;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            width: 150px;
+        }
+
+        article img {
+            margin: 0 auto;
         }
 
 
-
         #mainsection {
-            width: 90vw;
-            max-width: 1000px;
+            background-color: #fcf9f9;
             display: grid;
-            grid-gap: 15px;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            justify-content: center;
+            grid-template-columns: repeat(3, 1fr);
             margin: 0 auto;
+            justify-items: center;
+        }
+
+        /* scroll funktion i mobil og tablet-view på DRINKS (alt under 950px)*/
+        @media (max-width: 950px) {
+            #mainsection {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+            }
+
+            article {
+                width: 150px;
+            }
         }
 
         .title {
             color: white;
-            font-size: 5rem;
+            font-size: 3.5rem;
             font-family: 'Montserrat', sans-serif;
             color: #000;
             margin: 0px;
+            font-weight: 100;
+        }
+
+        .title a {
+            text-decoration: none;
+            color: #000;
         }
 
         .undertitle {
+            margin: 10px;
+            padding: 10px;
             color: #000;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-family: 'Montserrat', sans-serif;
+            font-weight: 100;
+        }
+
+        @media (max-width: 600px) {
+            .undertitle {
+                font-size: 2.5rem;
+            }
         }
 
         #kategori {
             color: white;
         }
 
-        h2 {}
+        .navn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.3rem;
+            text-transform: uppercase;
+
+        }
 
         .valgt {
             color: #e29000;
@@ -64,115 +98,234 @@
         /*popup vindue*/
         #popup {
             position: fixed;
+            flex-wrap: wrap;
             left: 0;
             top: 0;
             width: 100vw;
             height: 100vh;
-            background-color: azure;
-            /*            background: rgba(255, 0, 0, 0.4);*/
+            background-color: #fcf9f9;
             display: none;
+            text-align: start;
+        }
+
+        .popflex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .popflex img {
+            width: 300px;
+            flex-grow: 1;
         }
 
         #popup article {
+            display: flex;
+            overflow: auto;
+            border-radius: 25px;
             max-width: 80vw;
             width: auto;
-            max-height: 80vh;
+            min-height: 80vh;
             height: auto;
             margin: 4rem auto;
             background-color: white;
         }
 
         #close {
-            position: fixed;
+            /*
             right: 1em;
             top: 0;
-            width: 20px;
+*/
+            font-size: 1.5rem;
+            width: 25px;
             background-color: #fff;
-            color: white;
+            color: black;
             border-radius: 15px;
             padding: .1rem;
         }
 
         img {
             max-width: 100%;
+            align-content: center;
         }
 
         #popup img {
+            align-self: center;
             max-width: 70vw;
             max-height: 55vh;
+            min-width: 300px;
         }
 
         .text {
-            max-height: 40%;
+            align-self: center;
+            flex-grow: 0;
+
         }
 
-        header {
-            background-color: #fcf9f9;
-        }
 
-        /*BILLED KNAPPER*/
-
-        #knap_sektion1 {
-            display: grid;
-            grid-gap: 15px;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        }
-
-        #knap_sektion1 button:nth-child(1) {
+        .hidden {
             display: none;
 
         }
 
-        #knap_sektion1 button:nth-child(2) {
-            background-image: url(imgs/gin_bottle.svg);
-            object-fit: cover;
-            border: none;
-            background-color: #fcf9f9;
-            width: 300px;
-            height: 450px;
+        @media (min-width: 950px) {
+            .popflex {
+                display: flex;
+                flex-wrap: nowrap;
+                margin: 0 auto;
+            }
+
+            .text {
+                max-width: 30vw;
+            }
         }
 
-        #knap_sektion1 button:nth-child(3) {
-            background-image: url(imgs/rom_bottle.svg);
-            object-fit: cover;
-            border: none;
-            background-color: #fcf9f9;
-            width: 300px;
-            height: 450px;
+        @media (max-width: 950px) {
+            #popup article {
+                display: flex;
+                overflow: auto;
+                border-radius: 25px;
+                max-width: 80vw;
+                width: auto;
+                max-height: 80vh;
+                height: auto;
+                margin: 4rem auto;
+                background-color: white;
+            }
+
         }
 
-        #knap_sektion1 button:nth-child(4) {
-            background-image: url(imgs/vodka_bottle.svg);
-            object-fit: cover;
-            border: none;
-            background-color: #fcf9f9;
-            width: 300px;
-            height: 450px;
-        }
+        /*        BURGERMENU*/
 
-        #knap_sektion1 button:nth-child(5) {
-            background-image: url(imgs/tequila_bottle.svg);
-            object-fit: cover;
-            border: none;
-            background-color: #fcf9f9;
-            width: 300px;
-            height: 450px;
-        }
-
-        /*TEKST KNAPPER*/
-
-        #knap_sektion2 {
+        #header2 {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            padding: 20px;
 
         }
 
-        #knap_sektion2 button:nth-child(1) {
+        #header_right img {
+            width: 50px;
+            background-size: contain;
+        }
+
+        #logo_section {
+            position: absolute;
+            left: 47%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #logo_section img {
+            width: 80px;
+        }
+
+        #header_left {
+            position: absolute;
+            left: 95vw;
+        }
+
+        @media (max-width: 600px) {
+            #header_left {
+                left: 80vw;
+            }
+
+            #menu ul {
+                position: relative;
+                left: -30vw;
+
+            }
+        }
+
+
+        #burgermenu {
+            background-image: url(burgermenu.svg);
+            background-size: cover;
+            width: 40px;
+            height: 30px;
+            background-repeat: no-repeat;
+        }
+
+        #menu {
+            position: absolute;
+            list-style-type: none;
+            left: 83vw;
+            width: 25vw;
+            font-size: 20px;
+            font-family: 'Montserrat', sans-serif;
+            width: 220px;
+        }
+
+        #krydsikon {
+            width: 30px;
+            height: 30px;
+            background-image: url(kryds.svg);
+            background-repeat: no-repeat;
+        }
+
+        nav ul {
+            list-style: none;
+            line-height: 3;
+        }
+
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding-right: 10px
+        }
+
+
+        nav a:hover {
+            color: white;
+            background-color: grey;
+            cursor: pointer;
+            border-radius: 25px;
+            padding: 15px;
+
+        }
+
+        /*FLASKER */
+
+        #header1 {
+            background-color: #fcf9f9;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* scroll funktion i mobil og tablet-view på flasker (alt under 950px)*/
+        @media (max-width: 950px) {
+            #header1 {
+                overflow-x: scroll;
+            }
+        }
+
+        #alle_knap {
             display: none;
         }
 
-        #knap_sektion2 button:nth-child(2) {
-            font-family: cursive;
+        #gin_knap {
+            /*
+            display: flex;
+            flex-wrap: wrap;
+*/
+        }
+
+        /* KNAPPER */
+        #gin_knap {
+            flex-grow: 1;
+        }
+
+        #gin_knap .billede_knap {
+            background-image: url(imgs/gin_bottle.svg);
+            object-fit: contain;
+            border: none;
+            background-color: #fcf9f9;
+            margin: 0 auto;
+            width: 200px;
+            height: 300px;
+        }
+
+        #gin_knap .tekst_knap {
             border: none;
             background-color: #fcf9f9;
             font-size: 3rem;
@@ -181,31 +334,151 @@
             text-transform: uppercase;
         }
 
-        #knap_sektion2 button:nth-child(3) {
-            font-family: cursive;
+        #vodka_knap {
+            flex-grow: 1;
+        }
+
+        #vodka_knap .billede_knap {
+            background-image: url(imgs/vodka_bottle.svg);
+            object-fit: cover;
+            border: none;
+            background-color: #fcf9f9;
+            margin: 0 auto;
+            width: 200px;
+            height: 300px;
+        }
+
+        #vodka_knap .tekst_knap {
             border: none;
             background-color: #fcf9f9;
             font-size: 3rem;
+            text-align: center;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
         }
 
-        #knap_sektion2 button:nth-child(4) {
-            font-family: cursive;
+        #rom_knap {
+            flex-grow: 1;
+        }
+
+        #rom_knap .billede_knap {
+            background-image: url(imgs/rom_bottle.svg);
+            object-fit: cover;
+            border: none;
+            background-color: #fcf9f9;
+            margin: 0 auto;
+            width: 200px;
+            height: 300px;
+        }
+
+        #rom_knap .tekst_knap {
             border: none;
             background-color: #fcf9f9;
             font-size: 3rem;
+            text-align: center;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
         }
 
-        #knap_sektion2 button:nth-child(5) {
-            font-family: cursive;
+        #tequila_knap {
+            flex-grow: 1;
+        }
+
+        #tequila_knap .billede_knap {
+            background-image: url(imgs/tequila_bottle.svg);
+            object-fit: cover;
+            border: none;
+            background-color: #fcf9f9;
+            margin: 0 auto;
+            width: 200px;
+            height: 300px;
+        }
+
+        #tequila_knap .tekst_knap {
             border: none;
             background-color: #fcf9f9;
             font-size: 3rem;
+            text-align: center;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
+        }
+
+        /****** SPLASH SECTION ******/
+
+        .splash_section {
+            opacity: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
+
+        }
+
+        .splash_section :nth-child(1) {
+            grid-column: 1 / span 4;
+            grid-row: 1 / span 4;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        button {
+            padding: 20px;
+            border-radius: 40px;
+            border: none;
+            background-color: RGBA(0, 0, 0, 0.2);
+            margin: 0 auto;
+            position: absolute;
+            left: 42.8%;
+            top: 50%;
+            font-family: sans-serif;
+            font-size: 3rem;
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+            button {
+                left: 30%;
+            }
+        }
+
+        button:hover {
+            color: white;
+            background-color: RGBA(0, 14, 5, 0.4);
+
+        }
+
+
+        .hide {
+            display: none;
+            overflow: hidden;
+        }
+
+        .fade_out {
+            display: none;
+            opacity: 0;
+            transition: visibility 0s 1s opacity 1s linear;
+        }
+
+        .pulse {
+            animation-name: pulse_kf;
+            animation-duration: 2.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+        }
+
+        @keyframes pulse_kf {
+            0% {
+                transform: scale(0.90);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0.90);
+            }
         }
     </style>
 </head>
@@ -214,103 +487,235 @@
     <section id="popup">
 
         <article>
-            <p id="close">x</p>
-            <img src="" alt="">
-            <div class="text">
-                <h2>Ret</h2>
-                <p><span class="navn"></span></p>
-                <p><span class="kategori"></span></p>
-                <p><span class="fremgangsmetode"></span></p>
-                <p><span class="ingredienser"></span></p>
+            <div class="popflex">
+                <img src="" alt="">
+                <div class="text">
+                    <h2>Ret</h2>
+                    <p><span class="navn"></span></p>
+                    <p><span class="kategori"></span></p>
+                    <p><span class="tekst"></span></p>
+                    <p><span class="fremgangsmetode"></span></p>
+                    <p><span class="ingredienser"></span></p>
+                </div>
             </div>
+            <p id="close">x</p>
         </article>
 
     </section>
-    <h1 class="title">KLINK</h1>
 
-    <h2 class="undertitle">CHOOSE YOUR ALCOHOL</h2>
-
-    <header>
-        <!--BILLED KNAPPER-->
-        <div id="knap_sektion1">
-            <button class="filter valgt" data-rettype="alle"></button>
-            <button class="filter " data-rettype="gin"></button>
-            <button class="filter " data-rettype="vodka"></button>
-            <button class="filter " data-rettype="rom"></button>
-            <button class="filter " data-rettype="tequila"></button>
-        </div>
-
-        <!--TEKST KNAPPER-->
-        <div id="knap_sektion2">
-            <button class="filter valgt" data-rettype="alle"></button>
-            <button class="filter " data-rettype="gin">Gin</button>
-            <button class="filter " data-rettype="vodka">Vodka</button>
-            <button class="filter " data-rettype="rom">Rom</button>
-            <button class="filter " data-rettype="tequila">Tequila</button>
-        </div>
-    </header>
-
-
-
-
-    <h1 id="kategori">Alle</h1>
-
-    <section id="mainsection">
-
+    <section class="splash_section">
+        <img src="splash-bg.svg" alt="">
+        <button id="splash_button" class="pulse">START MIXING</button>
     </section>
 
-    <!--template bruges naar der skal vaere flere at samme slags-->
-    <template>
-        <article>
-            <h2 class="navn"></h2>
-            <img src="" alt="">
-            <p class="kategori"></p>
-            <p class="tekst"></p>
-            <!--            <p class="ingredienser"></p>-->
-        </article>
-    </template>
 
+    <section id="forside" class="hide">
+
+        <!--BURGERMENU-->
+        <header id="header2">
+
+            <div id="header_right"> <img src="sog.svg"></div>
+
+            <div id="logo_section">
+                <a href="f%C3%A6llespassion.html"><img src="logo.svg" alt="logo"></a>
+            </div>
+
+            <nav>
+
+                <div id="header_left">
+                    <div id="burgermenu"></div>
+                </div>
+
+                <div id="menu" class="hidden">
+
+                    <div id="krydsikon"></div>
+
+                    <ul>
+                        <li><a href="splash">Forside</a></li>
+                        <li><a href="#undertitle">Vælg din flaske</a></li>
+                        <li><a href="">Søg efter drink</a></li>
+                        <li><a href="">Kontakt</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <h2 class="undertitle">CHOOSE YOUR ALCOHOL</h2>
+
+
+
+        <!--FLASKER-->
+        <!--        flaskerne agerer filtreringsknapper, og er grunden til at de er lagt ind i header-tagget -->
+        <header id="header1">
+            <div id="alle_knap" data-drinktype="alle">
+                <div class="filter valgt billede_knap"></div>
+                <div class="filter valgt tekst_knap"></div>
+            </div>
+            <div id="gin_knap" class="filter valgt" data-drinktype="gin">
+                <div class="billede_knap"></div>
+                <div class="filter valgt tekst_knap">Gin</div>
+            </div>
+            <div id="vodka_knap" class="filter valgt" data-drinktype="vodka">
+                <div class=" billede_knap"></div>
+                <div class="tekst_knap">Vodka</div>
+            </div>
+            <div id="rom_knap" class="filter valgt" data-drinktype="rom">
+                <div class="filter valgt billede_knap" data-drinktype="rom"></div>
+                <div class="filter valgt tekst_knap" data-drinktype="rom">Rom</div>
+            </div>
+            <div id="tequila_knap" class="filter valgt" data-drinktype="tequila">
+                <div class="billede_knap"></div>
+                <div class="tekst_knap">Tequila</div>
+            </div>
+        </header>
+
+
+        <h1 id="kategori">Alle</h1>
+
+        <section id="mainsection">
+
+        </section>
+
+        <!--template bruges naar der skal vaere flere at samme slags-->
+        <template>
+            <article>
+                <h2 class="navn"></h2>
+                <img src="" alt="">
+                <p class="kategori"></p>
+            </article>
+        </template>
+    </section>
     <!--SCRIPT-->
 
     <script>
+        // eventlistener der lytter til når "start mixing" knappen er klikket på //
+        document.querySelector("#splash_button").addEventListener("click", buttonClicked);
+
+        // funktion for hvad der sker, når knappen bliver trykket på //
+        function buttonClicked() {
+            console.log(buttonClicked);
+
+            //når knappen bliver trykket, kaldes funktionen removeSplash//
+            removeSplash();
+        };
+
+        function removeSplash() {
+            console.log(removeSplash);
+
+            //her tilføjes classen hide, og giver den display:none//
+            document.querySelector(".splash_section").classList.add("hide");
+
+            //her fjernes classen hide fra forsiden, så man kan se den//
+            document.querySelector("#forside").classList.remove("hide");
+        }
+
+
+        // BURGERMENU //
+
+        //DOM'en loades og funktionen sidenVises kaldes//
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("sidenVises");
+
+            // ved klik på burgermenuen (som ligger i id'et header_left), lytter vi til funktionen toggleMenu, som gør at vi kan åbne/lukke op for menuen//
+            document.querySelector("#header_left").addEventListener("click", toggleMenu);
+
+            //ved klik på kydsikonet, lytter til funktionen toggleMenu, som kan lukke/toggle menuen sammen//
+            document.querySelector("#krydsikon").addEventListener("click", toggleMenu);
+        }
+
+
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+
+            // hvis header_left indeholder classen hidden, skal den fjernes - og dermed får vi vist burgermenu-ikonet//
+            if (document.querySelector("#header_left").classList.contains("hidden")) {
+
+                console.log("showikon");
+
+                document.querySelector("#header_left").classList.remove("hidden");
+
+                //tilføjer en "hidden" class, så man ikke kan se menuen, medmindre header_left indeholder classen "hidden" //
+                document.querySelector("#menu").classList.add("hidden");
+            } else {
+                console.log("hide burger");
+
+                //her tilføjes classen hidden, så burgermenuen ikke kan ses - man kan dog se krydsikonet, fordi det ligger inde i menuen! //
+                document.querySelector("#header_left").classList.add("hidden");
+
+                //classen hidden fjernes, så vi nu kan se og bruge menuen, indtil vi trykker på krydset igen, og toggler menuen sammen igen //
+                document.querySelector("#menu").classList.remove("hidden");
+
+            }
+        }
+
+        // JSON //
+
+        //starter med at definere de nødvendige variabler//
+
+        //container det samme som vores mainsection//
         let container = document.querySelector("#mainsection");
-        let temp = document.querySelector("template");
 
-        let filter = "alle";
-
-        let retter;
-        const link = "https://spreadsheets.google.com/feeds/list/13f3QsQ4tl4BRjHYk5EFrDGemmIqPl06QCqAbZpfW860/od6/public/values?alt=json";
-        document.addEventListener("DOMContentLoaded", hentData)
-
+        //definerer en konstant for vores pop-up sektion, så vi nemt kan hive fat i den senere//
         const popup = document.querySelector("#popup");
 
-        async function hentData() {
-            const respons = await fetch(link);
-            retter = await respons.json();
-            addEventListenersToButtons();
-            vis();
+        //temp er vores template tag som skal indeholde alt dataen fra JSON//
+        let temp = document.querySelector("template");
 
+        //Her bestemmer vi at filteret som start, skal indeholde alle vores kategorier//
+        let filter = "alle";
+
+        // her bestemmer vi hvad vi kalder al vores data, som vi henter fra Json, så vi altid kan finde det og kalde det igen//
+        let flasker;
+
+        // linket til google-sheetet med al vores Json data, giver vi en konstant, så vi nemt kan kalde url'en senere//
+        const link = "https://spreadsheets.google.com/feeds/list/13f3QsQ4tl4BRjHYk5EFrDGemmIqPl06QCqAbZpfW860/od6/public/values?alt=json";
+
+        //når DOM'en er loaded, kalder vi funktionen hentData, som loader vores Json//
+        document.addEventListener("DOMContentLoaded", hentData)
+
+        async function hentData() {
+
+            //her laves en konstant for når koden skal fetche/hente dataen fra 'link', som vi har defineret længere oppe med direkte url til google-sheetet//
+            const respons = await fetch(link);
+
+            //flasker er den variabel der indeholder en array med vores data, og her bestemmer vi at, når vi kalder variablen 'flasker', så løber den igennem /læser den arrayet - som bliver nødvendigt, når vi gerne vil filtrere imellem de forskellige kategorier//
+            flasker = await respons.json();
+
+            //i denne funktion sætter vi også eventlistenere på vores flaske-kategorier, så det er muligt at trykke/filtrere imellem dem, når DOM'en er loaded (se JS:633)//
+            document.querySelector("#gin_knap").addEventListener("click", addEventListenersToButtons);
+            document.querySelector("#rom_knap").addEventListener("click", addEventListenersToButtons);
+            document.querySelector("#vodka_knap").addEventListener("click", addEventListenersToButtons);
+            document.querySelector("#tequila_knap").addEventListener("click", addEventListenersToButtons);
+
+            //vi kalder funktionen 'vis' for at kunne vise al vores Json data, når DOM'en er loadet (se JS:633)//
+            vis();
         }
 
         function vis() {
 
-            console.log(retter);
-            //løb igennem array "dyr"
+            //tjekker om arrayet for flasker-dataen løbes igennem//
+            console.log(flasker);
 
+            //
             container.innerHTML = "";
-            retter.feed.entry.forEach(ret => {
-                if (filter == "alle" || filter == ret.gsx$kategori.$t.toLowerCase()) {
+            //Her loopes alt igennem inde fra Json-dataen og vi ber samtidig om, for hver drink (forEach), hvis den indeholder "alle" i datatypen, så skal der vises et billede og navnet på drinken på forsiden//
+            flasker.feed.entry.forEach(drink => {
+                if (filter == "alle" || filter == drink.gsx$kategori.$t.toLowerCase()) {
+                    //her bestemmer vi, at hvis indholdet fra Json og indeholdet fra vores template i html'en, stemmer overens (true), så skal det vises med textContent på sitet//
+
+                    //vi laver en variabel=klon, for at kunne få fat i indholdet fra vores template-tag//
                     let klon = temp.cloneNode(true).content;
-                    klon.querySelector(".navn").textContent = ret.gsx$navn.$t;
-                    //viser stien og efternavn på fill
+                    klon.querySelector(".navn").textContent = drink.gsx$navn.$t;
 
-                    klon.querySelector("img").src = "imgs/" + ret.gsx$billede.$t + ".svg";
+                    klon.querySelector("img").src = "imgs/" + drink.gsx$billede.$t + ".svg";
 
-                    //                    klon.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
-                    klon.querySelector(".tekst").textContent = ret.gsx$tekst.$t;
-                    //                    klon.querySelector(".ingredienser").textContent = ret.gsx$ingredienser.$t + ",-";
+                    //her indsætter vi al template-indholdet med Json i vores article-sektion, som er stylet som vi vil have det inde i vores mainsektion//
                     console.log("article", klon.querySelector("article"));
-                    klon.querySelector("article").addEventListener("click", () => visDetaljer(ret));
+                    //vi sætter en eventlistener click på vores articles som indeholder hver enkelt drink, og kalder visDetaljer-funktionen som viser vores popup som er et child til vores container//
+                    klon.querySelector("article").addEventListener("click", () => visDetaljer(drink));
                     container.appendChild(klon);
 
                 }
@@ -318,41 +723,47 @@
 
         }
 
-
-
-
+        //ved klik på krydsikon, skal vores popup forsvinde og gøres ikke klik-bar med display:none//
         document.querySelector("#close").addEventListener("click", () => popup.style.display = "none");
 
-        function visDetaljer(ret) {
-            console.log(ret);
+        //kalder funktionen for popup indholdet//
+        function visDetaljer(drink) {
+            console.log(drink);
 
-            popup.querySelector("img").src = "imgs/" + ret.gsx$billede.$t + ".svg";
+            popup.querySelector("img").src = "imgs/" + drink.gsx$billede.$t + ".svg";
 
-            popup.querySelector("h2").textContent = ret.gsx$navn.$t;
-            //          popup.querySelector("h2").textContent += " " + ret.gsx$efternavn.$t;
-            //insaet value
-            popup.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
-            popup.querySelector(".fremgangsmetode").textContent = ret.gsx$fremgangsmetode.$t;
-            popup.querySelector(".ingredienser").textContent = ret.gsx$ingredienser.$t + ",-";
+            popup.querySelector("h2").textContent = drink.gsx$navn.$t;
+
+            //indsætter indholdet fra Json til htmlen/Dom'en//
+            popup.querySelector(".kategori").textContent = drink.gsx$kategori.$t;
+            popup.querySelector(".tekst").innerHTML = drink.gsx$tekst.$t;
+            popup.querySelector(".fremgangsmetode").innerHTML = drink.gsx$fremgangsmetode.$t;
+            popup.querySelector(".ingredienser").innerHTML = drink.gsx$ingredienser.$t + ",-";
             popup.style.display = "block";
         }
 
 
-
+        // gør at man kan klikke på knapperne, som i dette tilfælde er vores flasker, som kalder funktionen filterBTNs, som er vores filtrering//
         function addEventListenersToButtons() {
+            //
             document.querySelectorAll(".filter").forEach((btn) => {
                 btn.addEventListener("click", filterBTNs);
             });
         }
 
         function filterBTNs() {
-            filter = this.dataset.rettype;
+            //definerer at filteret lytter til dataset-drinktype oppe i html'en//
+            filter = this.dataset.drinktype;
+            console.log("filter", filter);
+
+            //hvis kategori indeholder den filtrerede/valgte drinktype ...
             document.querySelector("#kategori").textContent = this.textContent;
+            //så skal classen valgt fjernes, fordi vi er inde på den//
             document.querySelectorAll(".filter").forEach((btn) => {
                 btn.classList.remove("valgt");
             })
 
-            //hvorfor har valgt ikke et . ?
+            // ... Og ellers, tilføjer den classen valgt igen, så den bliver vist, og er klar til at blive trykket på/filtreret igen//
             this.classList.add("valgt");
             vis();
         }
